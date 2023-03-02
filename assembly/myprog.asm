@@ -1,0 +1,35 @@
+TITLE MYPROG.ASM
+DOSSEG
+.MODEL SMALL
+.STACK 0100h
+.DATA
+A db “Chryzle Amualla$”
+B db "BSCS$"
+C db "2nd year irregular$"
+
+.CODE
+MOV AX, @DATA
+MOV DS, AX
+
+MOV AH, 09h
+MOV DX, OFFSET A
+
+MOV DL, 0Ah
+INT 21h
+MOV DL, 0Dh
+INT 21h
+
+MOV DX, OFFSET B
+
+MOV DL, 0Ah
+INT 21h
+MOV DL, 0Dh
+INT 21h
+
+MOV DX, OFFSET C
+
+INT 21h
+
+MOV AX, 4C00h
+INT 21h
+END
